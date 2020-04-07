@@ -29,9 +29,12 @@ app.all('/.well-known/pki-validation/92462F2BCF76C55CE5F9DA7B92646C34.txt', (req
     res.sendFile(path.join(__dirname, ".well-known", "pki-validation", "92462F2BCF76C55CE5F9DA7B92646C34.txt"))
 })
 
+module.exports = app;
+
 // https.createServer({
 //     key: fs.readFileSync('./key.pem'),
 //     cert: fs.readFileSync('./cert.pem'),
 //     passphrase: 'YOUR PASSPHRASE HERE'
-// }, app)
+// }, app)  git clone \
+    // https://github.com/GoogleCloudPlatform/nodejs-docs-samples
 // .listen(port);

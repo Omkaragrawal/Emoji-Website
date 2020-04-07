@@ -1,4 +1,2 @@
 # [Start app_yaml]
-runtime: nodejs
-env: flex
-vm: true
+runtime: nodejs12
