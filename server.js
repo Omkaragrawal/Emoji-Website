@@ -16,6 +16,11 @@ app.use(bodyparser.urlencoded({
 app.use(express.static(path.join(__dirname, 'UI')));
 app.use(express.static(path.join(__dirname, '.well-known')));
 app.use(compression());
+app.use(function(request, response){
+    if(!request.secure){
+      response.redirect("https://" + request.headers.host + request.url);
+    }
+  });
 
 app.listen(port, () => {
     console.log(`App started at ${port}`);
