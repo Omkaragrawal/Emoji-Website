@@ -39,3 +39,7 @@ body{
 #analysis {
     border-bottom: 3px solid #ddd;
 }
+
+.img-fluid {
+    max-height: 200px;
+}
