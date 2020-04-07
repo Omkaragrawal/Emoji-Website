@@ -1,0 +1,26 @@
+{
+  "name": "emoji-website",
+  "version": "0.0.1",
+  "description": "A website to analyse your emojis and predict your personality",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Omkaragrawal/Emoji-Website.git"
+  },
+  "author": "OMKAR AGRAWAL, ALI MUSTAFA, SMITH JETHWA",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Omkaragrawal/Emoji-Website/issues"
+  },
+  "homepage": "https://github.com/Omkaragrawal/Emoji-Website#readme",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "helmet": "^3.22.0",
+    "morgan": "^1.10.0",
+    "openssl": "^1.1.0"
+  }
+}
