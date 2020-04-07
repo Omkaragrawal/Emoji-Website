@@ -16,9 +16,12 @@ app.use(bodyparser.urlencoded({
 app.use(express.static(path.join(__dirname, 'UI')));
 app.use(express.static(path.join(__dirname, '.well-known')));
 app.use(compression());
-app.use(function(request, response){
+app.use(function(request, response, next){
     if(!request.secure){
       response.redirect("https://" + request.headers.host + request.url);
+    }
+    else {
+        next();
     }
   });
 
