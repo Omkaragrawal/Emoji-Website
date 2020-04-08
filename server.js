@@ -1,5 +1,5 @@
 const express = require("express");
-const https = require('https');
+const helmet = require('helmet')
 const morgan = require('morgan');
 const fs = require('fs');
 const path = require('path');
@@ -9,6 +9,10 @@ const compression = require('compression');
 const app = express();
 const port = process.env.PORT || 8080;
 
+const  year = 3.154e+7;
+app.use(helmet.hsts({
+    maxAge: year
+  }))
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({
     extended: false
