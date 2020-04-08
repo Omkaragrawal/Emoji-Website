@@ -1,11 +1,3 @@
-RewriteEngine On
-RewriteBase /
-
-RewriteCond %{HTTPS} !=on
-RewriteCond %{HTTP_HOST} ^emojifi\.me$ [OR]
-RewriteCond %{HTTP_HOST} ^www\.emojifi\.me$
-RewriteRule .* https://emojifi.me%{REQUEST_URI} [R=301,L]
-
-RewriteCond %{HTTPS} =on
-RewriteCond %{HTTP_HOST} ^www\.emojifi\.me$
-RewriteRule .* https://emojifi.me%{REQUEST_URI} [R=301,L]
+RewriteEngine On 
+RewriteCond %{HTTPS} off 
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
