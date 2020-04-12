@@ -93,6 +93,7 @@ const workerCreator = (index, totalCount, ...sendData) => {
 
     console.log("Starting Download");
     Promise.all(completeData.map((imgUnit, i) => {
+        console.log("Creating worker no.: " + i)
         return workerCreator(i, completeData.length, imgUnit[0], 'dataset/' + imgUnit[1], i.toString() + ".png")
     })).then(success => {
         console.log("Promise.all Successful");
