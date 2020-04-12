@@ -3,17 +3,6 @@ const fs = require('fs');
 const util = require('util');
 const axios = require('axios').default;
 
-const schema = {
-    "URL": {
-        prop: "url",
-        type: "URL"
-    },
-    "title": {
-        prop: 'title',
-        type: String
-    }
-}
-
 const data = (file) => {
     try {
         const value = readXlsxFile(file, {
@@ -75,6 +64,7 @@ const downloadImage = async (link, dir, file) => {
     console.log(completeData.length)
 
     for(let i = 0; i< completeData.length; i++) {
+        console.log(`Downloading image ${i+1} / ${completeData.length}: \t ${completeData[i][1]}`);
         await downloadImage(completeData[i][0], 'dataset/' + completeData[i][1] , i.toString() + ".png")
         // await downloadImage(completeData[i][0], 'dataset/' + completeData[i][1] , )
     }
