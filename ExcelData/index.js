@@ -30,7 +30,7 @@ const data = (file) => {
 const workerPath = './worker.js'
 
 console.time("TOTAL TIME TAKEN FOR ALL THE PROCESS IS: ")
-const workerCreator = (...sendData) => {
+const workerCreator = (index, totalCount, ...sendData) => {
     return new Promise((resolve, reject) => {
         const worker = new Worker(workerPath, {
             workerData: sendData,
@@ -38,6 +38,7 @@ const workerCreator = (...sendData) => {
         worker.on('message', message => {
             if (message === true) {
                 worker.terminate();
+                console.log(`Downloaded image ${index+1} / ${totalCount}: \t ${sendData[1] + "/" + sendData[2]}`);
                 resolve(true);
             } else {
                 console.log(message)
@@ -50,7 +51,15 @@ const workerCreator = (...sendData) => {
         worker.on('exit', code => {
             worker.terminate();
             // if (code == 1) resolve(true)
-            if (code !== 0) reject(new Error(`Worker stopped with exit code ${code}`));
+            if (code !== 0) {
+                console.log(`Failed downloading image ${index+1} / ${totalCount}: \t ${sendData[1] + "/" + sendData[2]}`);
+
+                reject(new Error(`Worker stopped with exit code ${code}`));
+            }
+            else if (code == 0) {
+                console.log(`Downloaded image ${index+1} / ${totalCount}: \t ${sendData[1] + "/" + sendData[2]}`);
+                resolve("SUCCESS")
+            }
         });
     })
 }
@@ -84,8 +93,7 @@ const workerCreator = (...sendData) => {
 
     console.log("Starting Download");
     Promise.all(completeData.map((imgUnit, i) => {
-        console.log(`Downloading image ${i+1} / ${completeData.length}: \t ${imgUnit[1]}`);
-        return workerCreator(imgUnit[0], 'dataset/' + imgUnit[1], i.toString() + ".png", i)
+        return workerCreator(i, completeData.length, imgUnit[0], 'dataset/' + imgUnit[1], i.toString() + ".png")
     })).then(success => {
         console.log("Promise.all Successful");
         // console.log(success);
