@@ -57,7 +57,7 @@ const workerCreator = (...sendData) => {
 workerArray = Array(2)
 
 // console.time("TOTAL TIME TAKEN FOR ALL THE PROCESS IS: ")
-(() => {
+(async () => {
     let completeData = []
     console.log(completeData.concat(["url", "name"]))
     const files = ["./AppleEmojiListEmoji.xlsx", "./FacebookEmojiListEmoji.xlsx", "./GoogleEmojiListEmoji.xlsx", "./openEmojiListEmoji.xlsx", "./TwitterEmojiListEmoji.xlsx"]
