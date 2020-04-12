@@ -1,6 +1,6 @@
 const readXlsxFile = require('read-excel-file/node');
 const fs = require('fs');
-const util = require('util');
+// const util = require('util');
 const axios = require('axios').default;
 
 const data = (file) => {
@@ -24,6 +24,7 @@ const data = (file) => {
 
 const downloadImage = async (link, dir, file) => {
     try{
+        if(!fs.existsSync(dir + "/" + file)) {
     const {
         data
     } = await axios.get(link, {
@@ -35,6 +36,9 @@ const downloadImage = async (link, dir, file) => {
         console.log(err);
     });
     data.pipe(fs.createWriteStream(dir + "/" + file));
+} else {
+    console.log("Skipping Download of:\t" + file + "\n")
+}
 } catch(err) {
     console.log(err)
 }
