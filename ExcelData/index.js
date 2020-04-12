@@ -2,6 +2,12 @@ const readXlsxFile = require('read-excel-file/node');
 const fs = require('fs');
 // const util = require('util');
 const axios = require('axios').default;
+const {
+    Worker,
+    isMainThread,
+    parentPort,
+    workerData
+} = require('worker_threads');
 
 const data = (file) => {
     try {
@@ -21,29 +27,37 @@ const data = (file) => {
         console.log(err);
     }
 };
+const workerPath = './worker.js'
 
-const downloadImage = async (link, dir, file) => {
-    try{
-        if(!fs.existsSync(dir + "/" + file)) {
-    const {
-        data
-    } = await axios.get(link, {
-        responseType: "stream"
-    });
-    fs.mkdirSync(dir, {
-        recursive: true
-    }, err => {
-        console.log(err);
-    });
-    data.pipe(fs.createWriteStream(dir + "/" + file));
-} else {
-    console.log("Skipping Download of:\t" + file + "\n")
+console.time("TOTAL TIME TAKEN FOR ALL THE PROCESS IS: ")
+const workerCreator = (...sendData) => {
+    return new Promise((resolve, reject) => {
+        const worker = new Worker(workerPath, {
+            workerData: sendData,
+        });
+        worker.on('message', message => {
+            if (message === true) {
+                worker.terminate();
+                resolve(true);
+            } else {
+                console.log(message)
+            }
+        });
+        worker.on('error', err => {
+            worker.terminate();
+            reject(err);
+        });
+        worker.on('exit', code => {
+            worker.terminate();
+            // if (code == 1) resolve(true)
+            if (code !== 0) reject(new Error(`Worker stopped with exit code ${code}`));
+        });
+    })
 }
-} catch(err) {
-    console.log(err)
-}
-}
-(async () => {
+workerArray = Array(2)
+
+// console.time("TOTAL TIME TAKEN FOR ALL THE PROCESS IS: ")
+(() => {
     let completeData = []
     console.log(completeData.concat(["url", "name"]))
     const files = ["./AppleEmojiListEmoji.xlsx", "./FacebookEmojiListEmoji.xlsx", "./GoogleEmojiListEmoji.xlsx", "./openEmojiListEmoji.xlsx", "./TwitterEmojiListEmoji.xlsx"]
@@ -57,24 +71,27 @@ const downloadImage = async (link, dir, file) => {
     //     console.log(completeData.length)
     // });
 
-    for (let i = 0; i<files.length; i++) {
+    for (let i = 0; i < files.length; i++) {
         let tempData = await data(files[i])
         // console.log(tempData[3])
         // tempData = ;
         // console.log(tempData[5]);
-        completeData =  completeData.concat(tempData.slice(1).map(unit => [unit[0], unit[1].split(' ').join('_')]));
+        completeData = completeData.concat(tempData.slice(1).map(unit => [unit[0], unit[1].split(' ').join('_')]));
         console.log(completeData.length)
     }
     console.log(completeData.length)
 
-    for(let i = 0; i< completeData.length; i++) {
-        console.log(`Downloading image ${i+1} / ${completeData.length}: \t ${completeData[i][1]}`);
-        await downloadImage(completeData[i][0], 'dataset/' + completeData[i][1] , i.toString() + ".png")
-        // await downloadImage(completeData[i][0], 'dataset/' + completeData[i][1] , )
-    }
+    // console.time("Total Worker time: ")
 
-
-    // fs.writeFileSync('appleEmojiJSON1.json', JSON.stringify({
-    //     "content": completeData
-    // }));
+    Promise.all(completeData.map((imgUnit, i) => {
+        return workerCreator(imgUnit[0], 'dataset/' + imgUnit[1], i.toString() + ".png")
+    })).then(success => {
+        console.log("Promise.all Successful");
+        // console.log(success);
+        console.timeEnd("TOTAL TIME TAKEN FOR ALL THE PROCESS IS: ");
+    }).catch(err => {
+        console.log("\n\n\nError returned");
+        console.log(err);
+        console.timeEnd("TOTAL TIME TAKEN FOR ALL THE PROCESS IS: ");
+    });
 })()
