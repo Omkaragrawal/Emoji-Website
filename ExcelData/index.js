@@ -54,7 +54,6 @@ const workerCreator = (...sendData) => {
         });
     })
 }
-workerArray = Array(2)
 
 // console.time("TOTAL TIME TAKEN FOR ALL THE PROCESS IS: ")
 (async () => {
