@@ -82,8 +82,10 @@ const workerCreator = (...sendData) => {
 
     // console.time("Total Worker time: ")
 
+    console.log("Starting Download");
     Promise.all(completeData.map((imgUnit, i) => {
-        return workerCreator(imgUnit[0], 'dataset/' + imgUnit[1], i.toString() + ".png")
+        console.log(`Downloading image ${i+1} / ${completeData.length}: \t ${imgUnit[1]}`);
+        return workerCreator(imgUnit[0], 'dataset/' + imgUnit[1], i.toString() + ".png", i)
     })).then(success => {
         console.log("Promise.all Successful");
         // console.log(success);
