@@ -1,6 +1,6 @@
 const workerpool = require('workerpool');
 
-const downloadImg = (URL, FILE_NAME, fileExtension) => {
+const downloadImg = (URL, FILE_NAME, fileExtension, WORKER_COUNT) => {
     return new Promise(async (resolve, reject) => {
         try {
             console.time(`Time taken by WORKER ${WORKER_COUNT}: `);

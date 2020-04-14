@@ -83,7 +83,7 @@ const files = ["./AppleEmojiListEmoji.xlsx", "./GoogleEmojiListEmoji.xlsx", "./F
             //     return Promise.resolve("Not in Top 200 List")
             // }
             console.log("Returning pool.exec for count: " + i);
-            return pool.exec("downloadImg", [imgUnit[0], `newDataset/${imgUnit[1]}/${i.toString()}`, ".jpg"]);
+            return pool.exec("downloadImg", [imgUnit[0], `newDataset/${imgUnit[1]}/${i.toString()}`, ".jpg", i]);
         })).then(success => {
             console.log("Success");
             console.log(success);
