@@ -5,7 +5,7 @@ const axios = require('axios').default;
 console.time("Time taken for all files: ");
 
 
-const pool = workerpool.pool(__dirname + '/workerpoolWorker.js', {
+const pool = workerpool.pool(__dirname + '/downloadGoogleTelegram-worker.js', {
     minWorkers: "max",
     workerType: "thread"
 });
