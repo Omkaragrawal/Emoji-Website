@@ -3,13 +3,13 @@ const workerpool = require('workerpool');
 const downloadImg = (URL, FILE_NAME, fileExtension, WORKER_COUNT) => {
     return new Promise(async (resolve, reject) => {
         try {
-            console.time(`Time taken by WORKER ${WORKER_COUNT}: `);
+            // console.time(`Time taken by WORKER ${WORKER_COUNT}: `);
             console.log("INSIDE OF WORKER THREAD");
 
             const Jimp = require("jimp");
             const fs = require('fs');
-
             if (!fs.existsSync(FILE_NAME)) {
+                console.log("Downloading in worker " + WORKER_COUNT + "  file:\t" + FILE_NAME);
                 Jimp.read(URL)
                     .then(image => {
                         console.log(err)
@@ -22,13 +22,13 @@ const downloadImg = (URL, FILE_NAME, fileExtension, WORKER_COUNT) => {
                     })
                     .catch(err => {
                         console.log("Image creation failed");
-                        console.timeEnd(`Time taken by WORKER ${WORKER_COUNT}: `);
+                        // console.timeEnd(`Time taken by WORKER ${WORKER_COUNT}: `);
                         reject(err);
                     });
             } else {
                 console.log("Skipping Download of:\t" + FILE_NAME);
             }
-            console.timeEnd(`Time taken by WORKER ${WORKER_COUNT}: `);
+            // console.timeEnd(`Time taken by WORKER ${WORKER_COUNT}: `);
             console.log("\n");
             resolve("SUCCESS")
         } catch (err) {
