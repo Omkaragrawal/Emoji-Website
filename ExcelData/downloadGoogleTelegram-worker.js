@@ -22,6 +22,7 @@ const downloadImg = (URL, FILE_NAME, fileExtension, WORKER_COUNT) => {
                     })
                     .catch(err => {
                         console.log("Image creation failed");
+                        console.log(err)
                         // console.timeEnd(`Time taken by WORKER ${WORKER_COUNT}: `);
                         reject(err);
                     });
@@ -33,7 +34,7 @@ const downloadImg = (URL, FILE_NAME, fileExtension, WORKER_COUNT) => {
             resolve("SUCCESS")
         } catch (err) {
             console.log(err);
-            console.timeEnd(`Time taken by WORKER ${WORKER_COUNT}: `);
+            // console.timeEnd(`Time taken by WORKER ${WORKER_COUNT}: `);
             reject(err);
         }
     });
