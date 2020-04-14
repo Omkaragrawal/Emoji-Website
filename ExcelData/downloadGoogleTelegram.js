@@ -67,6 +67,7 @@ const files = ["./AppleEmojiListEmoji.xlsx", "./GoogleEmojiListEmoji.xlsx", "./F
 
     const dataNames = data.map((emojiData) => {
         emojiData.name = emojiData.name.split(" ").join("_").split("'").join("").split(':').join("");
+        return emojiData;
     })
     //----------------------------------------------------------------------------------------------------------------
 
@@ -76,10 +77,11 @@ const files = ["./AppleEmojiListEmoji.xlsx", "./GoogleEmojiListEmoji.xlsx", "./F
 
     const fgh = ["uhasu", "jiu"]
 
+    console.log(dataNames);
     Promise.all(completeData.map((imgUnit, i) => {
-            if (!dataNames.includes(imgUnit[1])) {
-                return Promise.resolve("Not in Top 200 List")
-            }
+            // if (!dataNames.includes(imgUnit[1])) {
+            //     return Promise.resolve("Not in Top 200 List")
+            // }
             console.log("Returning pool.exec for count: " + i);
             return pool.exec("downloadImg", [imgUnit[0], `newDataset/${imgUnit[1]}/${i.toString()}`, ".jpg"]);
         })).then(success => {
