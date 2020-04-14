@@ -9,7 +9,7 @@ const downloadImg = (URL, FILE_NAME, fileExtension, WORKER_COUNT) => {
             const Jimp = require("jimp");
             const fs = require('fs');
             if (!fs.existsSync(FILE_NAME)) {
-                console.log("Downloading in worker " + WORKER_COUNT + "  file:\t" + FILE_NAME);
+                console.log("Downloading in worker " + WORKER_COUNT + "  file:\t" + FILE_NAME + fileExtension);
                 Jimp.read(URL)
                     .then(image => {
                         console.log(err)
