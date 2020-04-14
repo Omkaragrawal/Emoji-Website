@@ -90,6 +90,7 @@ const files = ["./AppleEmojiListEmoji.xlsx", "./GoogleEmojiListEmoji.xlsx", "./F
     // ]
 
     console.time("Total Worker time: ");
+    console.log(pool.stats());
 
     console.log("Starting Download");
 
