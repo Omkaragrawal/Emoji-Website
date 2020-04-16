@@ -1,5 +1,6 @@
 const workerpool = require('workerpool');
 const axios = require('axios').default;
+const fs = require('fs');
 
 console.time("Time taken for all files: ");
 
@@ -69,24 +70,9 @@ const files = ["./ImageNew-Google.xlsx", "./Messengericons1.xlsx"];
 
     // console.log(topEmojiIds);
 
-    //----------------------------------------------------String Comparison--------------------------------------------
+    //-------------------------------------------------Writinng topEmoji.json-------------------------------------------
 
-    function similar(a, b) {
-        var lengthA = a.length;
-        var lengthB = b.length;
-        var equivalency = 0;
-        var minLength = (a.length > b.length) ? b.length : a.length;
-        var maxLength = (a.length < b.length) ? b.length : a.length;
-        for (var i = 0; i < minLength; i++) {
-            if (a[i] == b[i]) {
-                equivalency++;
-            }
-        }
-
-
-        var weight = equivalency / maxLength;
-        return (weight * 100);
-    }
+    fs.writeFileSync("./../ExcelData/topEmojis.json", JSON.stringify({"top200": data}));
 
     //----------------------------------------------------Start Fetching------------------------------------------------
     let allTrue = []
