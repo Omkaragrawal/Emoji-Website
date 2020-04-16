@@ -10,7 +10,7 @@ const pool = workerpool.pool(__dirname + '/downloadGoogleTelegram-worker.js', {
     workerType: "thread"
 });
 
-const files = ["./AppleEmojiListEmoji.xlsx", "./GoogleEmojiListEmoji.xlsx", "./FacebookEmojiListEmoji.xlsx"];
+const files = ["./ImageNew-Google.xlsx", "./Messengericons.xlsx"];
 
 (async () => {
     let completeData = files.reduce((accumulator, currVal, currIndex) => {
