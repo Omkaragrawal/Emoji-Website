@@ -16,10 +16,10 @@ const downloadImg = (URL, FILE_NAME, fileExtension, WORKER_COUNT) => {
                         image
                             .quality(100)
                             .write(FILE_NAME + fileExtension);
-                            console.log("Rewriting image 50 more times");
-                        for (let index = 0; index < 50; index++) {
-                            image.quality(100).write(FILE_NAME + "(" + index.toString() + ")" + fileExtension);
-                        }
+                        //     console.log("Rewriting image 50 more times");
+                        // for (let index = 0; index < 50; index++) {
+                        //     image.quality(100).write(FILE_NAME + "(" + index.toString() + ")" + fileExtension);
+                        // }
                         console.timeEnd(`Time taken by WORKER ${WORKER_COUNT}: `);
                         resolve("SUCCESS");
 
