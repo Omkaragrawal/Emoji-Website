@@ -1,0 +1,18 @@
+{
+  "name": "generateNewDataset",
+  "version": "1.0.0",
+  "description": "",
+  "main": "downloadGoogleTelegram-worker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "convert-excel-to-json": "^1.6.1",
+    "jimp": "^0.10.2",
+    "workerpool": "^5.0.4"
+  }
+}
