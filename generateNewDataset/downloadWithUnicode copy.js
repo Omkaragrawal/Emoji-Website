@@ -7,7 +7,7 @@ const pool = workerpool.pool(__dirname + '/downloadGoogleTelegram-worker.js', {
     minWorkers: "max",
     workerType: "thread"
 });
-const files = ["./ImageNew-Google.xlsx", "./Messengericons1.xlsx"];
+const files = ["./AppleEmojiListEmoji.xlsx"];
 // const files = ["./Messengericons1.xlsx"];
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -46,7 +46,7 @@ const files = ["./ImageNew-Google.xlsx", "./Messengericons1.xlsx"];
         return (!imgUnit[0].endsWith(".png")) ? false : true
     });
 
-    completeData.slice(2e3, 2030);
+    // completeData.slice(2e3, 2030);
 
     //------------------------------------------GET TO 200 EMOJI LIST--------------------------------------------------
     let {
@@ -93,17 +93,17 @@ const files = ["./ImageNew-Google.xlsx", "./Messengericons1.xlsx"];
     Promise.all(completeData.map((imgUnit, i) => {
             let toDownload = false
             for (let i = 0; i < topEmojiIds.length; i++) {
-                // if(imgUnit[1].includes(topEmojiIds[i][0]) || imgUnit[1].includes(topEmojiIds[i][1])) {
-                //     // console.log(imgUnit, topEmojiIds[i]);
-                //     toDownload = true
-                //     break;
-                // }
-
-                if (imgUnit[1] == topEmojiIds[i][0] || imgUnit[1] == topEmojiIds[i][1]) {
+                if(imgUnit[1].includes(topEmojiIds[i][0]) || imgUnit[1].includes(topEmojiIds[i][1])) {
                     // console.log(imgUnit, topEmojiIds[i]);
                     toDownload = true
                     break;
                 }
+
+                // if (imgUnit[1] == topEmojiIds[i][0] || imgUnit[1] == topEmojiIds[i][1]) {
+                //     // console.log(imgUnit, topEmojiIds[i]);
+                //     toDownload = true
+                //     break;
+                // }
 
                 // if(imgUnit[0].includes(topEmojiIds[i][0]) || imgUnit[0].includes(topEmojiIds[i][1])) {
                 //     // console.log(imgUnit, topEmojiIds[i]);
@@ -131,9 +131,11 @@ const files = ["./ImageNew-Google.xlsx", "./Messengericons1.xlsx"];
                 return Promise.resolve("Not in top 200 list");
             }
 
-            console.log(imgUnit);
-            console.log("Returning pool.exec for count: " + i);
-            return pool.exec("downloadImg", [imgUnit[0], `topEmojiDataset/${imgUnit[2].split(".xlsx")[0]}/${imgUnit[1]}`, ".png", i]);
+            return Promise.resolve("SUCCESS")
+
+            // console.log(imgUnit);
+            // console.log("Returning pool.exec for count: " + i);
+            // return pool.exec("downloadImg", [imgUnit[0], `topEmojiDataset/${imgUnit[2].split(".xlsx")[0]}/${imgUnit[1]}`, ".png", i]);
 
         }))
         .then(success => {
@@ -145,8 +147,8 @@ const files = ["./ImageNew-Google.xlsx", "./Messengericons1.xlsx"];
             }));
 
             console.log(allTrue.length);
-            console.timeEnd("Total Worker time: ");
-            console.timeEnd("Time taken for all files: ");
+            // console.timeEnd("Total Worker time: ");
+            // console.timeEnd("Time taken for all files: ");
         })
         .catch(err => {
             console.log("Inside .catch");
