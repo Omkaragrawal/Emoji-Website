@@ -1,0 +1,113 @@
+{
+    "top200": [{
+        "char": "💃",
+        "id": "1F483",
+        "name": "DANCER",
+        "score": 46370227
+    }, {
+        "char": "🙋",
+        "id": "1F64B",
+        "name": "HAPPY PERSON RAISING ONE HAND",
+        "score": 45589108
+    }, {
+        "char": "👎",
+        "id": "1F44E",
+        "name": "THUMBS DOWN SIGN",
+        "score": 42861755
+    }, {
+        "char": "😰",
+        "id": "1F630",
+        "name": "FACE WITH OPEN MOUTH AND COLD SWEAT",
+        "score": 40106537
+    }, {
+        "char": "💩",
+        "id": "1F4A9",
+        "name": "PILE OF POO",
+        "score": 40104533
+    }, {
+        "char": "😹",
+        "id": "1F639",
+        "name": "CAT FACE WITH TEARS OF JOY",
+        "score": 39834603
+    }, {
+        "char": "🌞",
+        "id": "1F31E",
+        "name": "SUN WITH FACE",
+        "score": 38463598
+    }, {
+        "char": "😟",
+        "id": "1F61F",
+        "name": "WORRIED FACE",
+        "score": 31140150
+    }, {
+        "char": "🙆",
+        "id": "1F646",
+        "name": "FACE WITH OK GESTURE",
+        "score": 30966626
+    }, {
+        "char": "💤",
+        "id": "1F4A4",
+        "name": "SLEEPING SYMBOL",
+        "score": 30940606
+    }, {
+        "char": "🙅",
+        "id": "1F645",
+        "name": "FACE WITH NO GOOD GESTURE",
+        "score": 30439005
+    }, {
+        "char": "😨",
+        "id": "1F628",
+        "name": "FEARFUL FACE",
+        "score": 29642223
+    }, {
+        "char": "🍕",
+        "id": "1F355",
+        "name": "SLICE OF PIZZA",
+        "score": 28539201
+    }, {
+        "char": "😮",
+        "id": "1F62E",
+        "name": "FACE WITH OPEN MOUTH",
+        "score": 28448624
+    }, {
+        "char": "😙",
+        "id": "1F619",
+        "name": "KISSING FACE WITH SMILING EYES",
+        "score": 28196571
+    }, {
+        "char": "☕️",
+        "id": "2615",
+        "name": "HOT BEVERAGE",
+        "score": 28152106
+    }, {
+        "char": "🎂",
+        "id": "1F382",
+        "name": "BIRTHDAY CAKE",
+        "score": 26033684
+    }, {
+        "char": "💟",
+        "id": "1F49F",
+        "name": "HEART DECORATION",
+        "score": 22577272
+    }, {
+        "char": "🙇",
+        "id": "1F647",
+        "name": "PERSON BOWING DEEPLY",
+        "score": 22502606
+    }, {
+        "char": "😵",
+        "id": "1F635",
+        "name": "DIZZY FACE",
+        "score": 20737045
+    }, {
+        "char": "🌝",
+        "id": "1F31D",
+        "name": "FULL MOON WITH FACE",
+        "score": 18825183
+    }, {
+        "char": "🐱",
+        "id": "1F431",
+        "name": "CAT FACE",
+        "score": 18484887
+    }]
+}

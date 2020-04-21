@@ -1,7 +1,6 @@
 const mergeImg = require('merge-img');
 const Jimp = require("jimp");
 const fs = require('fs');
-const util = require('util');
 
 // mergeImg(["./1f606.png", "./1f606.png", "./1f606.png", "./1f606.png", "./1f606.png", "./1f606.png"], {
 //     offset: 5,
@@ -50,21 +49,74 @@ const util = require('util');
 
 // })()
 
-(async => {
+(async _ =>{
     const dir1 = './topEmojiDataset/ImageNew-Google/'
     const dir2 = './topEmojiDataset/Messengericons1/'
-    let topList = JSON.parse(fs.readFileSync('./todownload.json'));
-    topList = topList["top200"];
-    console.log(topList.length)
-     topList = topList.filter(imgUnit => {
-        if(fs.existsSync(dir1 + imgUnit.id.toLowerCase() + ".png") && (fs.existsSync(dir2 + imgUnit.id.toLowerCase() + ".png"))) {
+    const saveDir = './topSelected/'
+    let topList = JSON.parse(fs.readFileSync('./todownload.json'))["top200"].filter(imgUnit => {
+        if (fs.existsSync(dir1 + imgUnit.id.toLowerCase() + ".png") && (fs.existsSync(dir2 + imgUnit.id.toLowerCase() + ".png"))) {
             return true;
         } else {
             return false;
         }
     }).map(imgUnit => imgUnit.id.toLowerCase())
 
-    fs.writeFileSync('finalList.json', JSON.stringify({list: topList}));
+    // fs.writeFileSync('finalList.json', JSON.stringify({
+    //     list: topList
+    // }));
+
+    try {
+        for (let i = 0; i < topList.length; i++) {
+            const image1 = await Jimp.read(dir1 + topList[i] + '.png');
+            const image2 = await Jimp.read(dir2 + topList[i] + '.png');
+
+            await image1.resize(125, 125).background(0xffffffff);
+            await image2.resize(125, 125).background(0xffffffff);
+
+            await image1.writeAsync(saveDir + topList[i] + '/' + topList[i] + '(google).jpg');
+            await image2.writeAsync(saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg');
+
+            const mergedImg1_0 = await mergeImg([
+                saveDir + topList[i] + '/' + topList[i] + '(google).jpg', saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg',
+                saveDir + topList[i] + '/' + topList[i] + '(google).jpg', saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg',
+                saveDir + topList[i] + '/' + topList[i] + '(google).jpg', saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg'
+            ], {
+                offset: 5,
+                direction: false,
+                color: 0xffffff01
+            });
+            const mergedImg1_1 = await mergeImg([
+                saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg', saveDir + topList[i] + '/' + topList[i] + '(google).jpg',
+                saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg', saveDir + topList[i] + '/' + topList[i] + '(google).jpg',
+                saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg', saveDir + topList[i] + '/' + topList[i] + '(google).jpg'
+            ], {
+                offset: 5,
+                direction: false,
+                color: 0xffffff01
+            });
+
+            await mergedImg1_0;
+            await mergedImg1_1;
+
+            const finalImg = await mergeImg([mergedImg1_0, mergedImg1_1, mergedImg1_0, mergedImg1_1, mergedImg1_0], {
+                direction: true,
+                color: 0xffffff01
+            });
+            const finalImg1 = await mergeImg([mergedImg1_0, mergedImg1_1, mergedImg1_0, mergedImg1_1, mergedImg1_0], {
+                direction: true,
+                color: 0xffffff01
+            });
+
+            await finalImg.write(saveDir + topList[i] + '/' + topList[i] + '(final).jpg', _ => console.log("DONE"));
+            await finalImg1.write(saveDir + topList[i] + '/' + topList[i] + '(final-1).jpg', _ => console.log("DONE"));
+
+            fs.unlinkSync(saveDir + topList[i] + '/' + topList[i] + '(google).jpg');
+            fs.unlinkSync(saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg');
+
+        }
+    } catch (err) {
+        console.log(err)
+    };
 
     console.log(topList.length);
 })()

@@ -1,0 +1,479 @@
+{
+    "top200": [
+        {
+        "char": "😂",
+        "id": "1F602",
+        "name": "FACE WITH TEARS OF JOY",
+        "score": 2791363913
+    }, {
+        "char": "❤️",
+        "id": "2764",
+        "name": "HEAVY BLACK HEART",
+        "score": 1350544433
+    }, {
+        "char": "😍",
+        "id": "1F60D",
+        "name": "SMILING FACE WITH HEART-SHAPED EYES",
+        "score": 1000812017
+    }, {
+        "char": "😭",
+        "id": "1F62D",
+        "name": "LOUDLY CRYING FACE",
+        "score": 878724324
+    }, {
+        "char": "😊",
+        "id": "1F60A",
+        "name": "SMILING FACE WITH SMILING EYES",
+        "score": 650267781
+    }, {
+        "char": "😒",
+        "id": "1F612",
+        "name": "UNAMUSED FACE",
+        "score": 506941348
+    }, {
+        "char": "😘",
+        "id": "1F618",
+        "name": "FACE THROWING A KISS",
+        "score": 487486236
+    }, {
+        "char": "😩",
+        "id": "1F629",
+        "name": "WEARY FACE",
+        "score": 439548353
+    }, {
+        "char": "😔",
+        "id": "1F614",
+        "name": "PENSIVE FACE",
+        "score": 405379243
+    }, {
+        "char": "☺️",
+        "id": "263A",
+        "name": "WHITE SMILING FACE",
+        "score": 397656127
+    }, {
+        "char": "😁",
+        "id": "1F601",
+        "name": "GRINNING FACE WITH SMILING EYES",
+        "score": 380299201
+    }, {
+        "char": "👌",
+        "id": "1F44C",
+        "name": "OK HAND SIGN",
+        "score": 367376800
+    }, {
+        "char": "😏",
+        "id": "1F60F",
+        "name": "SMIRKING FACE",
+        "score": 343679938
+    }, {
+        "char": "😉",
+        "id": "1F609",
+        "name": "WINKING FACE",
+        "score": 322079291
+    }, {
+        "char": "👍",
+        "id": "1F44D",
+        "name": "THUMBS UP SIGN",
+        "score": 288316625
+    }, {
+        "char": "😅",
+        "id": "1F605",
+        "name": "SMILING FACE WITH OPEN MOUTH AND COLD SWEAT",
+        "score": 274513770
+    }, {
+        "char": "🙏",
+        "id": "1F64F",
+        "name": "PERSON WITH FOLDED HANDS",
+        "score": 262482442
+    }, {
+        "char": "👀",
+        "id": "1F440",
+        "name": "EYES",
+        "score": 260699695
+    }, {
+        "char": "💔",
+        "id": "1F494",
+        "name": "BROKEN HEART",
+        "score": 247845424
+    }, {
+        "char": "😌",
+        "id": "1F60C",
+        "name": "RELIEVED FACE",
+        "score": 247382435
+    }, {
+        "char": "😢",
+        "id": "1F622",
+        "name": "CRYING FACE",
+        "score": 246485152
+    }, {
+        "char": "😎",
+        "id": "1F60E",
+        "name": "SMILING FACE WITH SUNGLASSES",
+        "score": 240933574
+    }, {
+        "char": "🔥",
+        "id": "1F525",
+        "name": "FIRE",
+        "score": 218357990
+    }, {
+        "char": "😳",
+        "id": "1F633",
+        "name": "FLUSHED FACE",
+        "score": 209561151
+    }, {
+        "char": "🙌",
+        "id": "1F64C",
+        "name": "PERSON RAISING BOTH HANDS IN CELEBRATION",
+        "score": 196940661
+    }, {
+        "char": "💯",
+        "id": "1F4AF",
+        "name": "HUNDRED POINTS SYMBOL",
+        "score": 190863172
+    }, {
+        "char": "🙈",
+        "id": "1F648",
+        "name": "SEE-NO-EVIL MONKEY",
+        "score": 186001112
+    }, {
+        "char": "✌️",
+        "id": "270C",
+        "name": "VICTORY HAND",
+        "score": 172060532
+    }, {
+        "char": "😄",
+        "id": "1F604",
+        "name": "SMILING FACE WITH OPEN MOUTH AND SMILING EYES",
+        "score": 169133569
+    }, {
+        "char": "😴",
+        "id": "1F634",
+        "name": "SLEEPING FACE",
+        "score": 166864845
+    }, {
+        "char": "😑",
+        "id": "1F611",
+        "name": "EXPRESSIONLESS FACE",
+        "score": 166721797
+    }, {
+        "char": "😋",
+        "id": "1F60B",
+        "name": "FACE SAVOURING DELICIOUS FOOD",
+        "score": 163333512
+    }, {
+        "char": "😜",
+        "id": "1F61C",
+        "name": "FACE WITH STUCK-OUT TONGUE AND WINKING EYE",
+        "score": 156051584
+    }, {
+        "char": "😞",
+        "id": "1F61E",
+        "name": "DISAPPOINTED FACE",
+        "score": 150361362
+    }, {
+        "char": "😪",
+        "id": "1F62A",
+        "name": "SLEEPY FACE",
+        "score": 150279476
+    }, {
+        "char": "😕",
+        "id": "1F615",
+        "name": "CONFUSED FACE",
+        "score": 148682541
+    }, {
+        "char": "💗",
+        "id": "1F497",
+        "name": "GROWING HEART",
+        "score": 144720264
+    }, {
+        "char": "👏",
+        "id": "1F44F",
+        "name": "CLAPPING HANDS SIGN",
+        "score": 142863227
+    }, {
+        "char": "😐",
+        "id": "1F610",
+        "name": "NEUTRAL FACE",
+        "score": 139408780
+    }, {
+        "char": "👉",
+        "id": "1F449",
+        "name": "WHITE RIGHT POINTING BACKHAND INDEX",
+        "score": 138475888
+    }, {
+        "char": "😱",
+        "id": "1F631",
+        "name": "FACE SCREAMING IN FEAR",
+        "score": 122275689
+    }, {
+        "char": "🌹",
+        "id": "1F339",
+        "name": "ROSE",
+        "score": 122218141
+    }, {
+        "char": "💘",
+        "id": "1F498",
+        "name": "HEART WITH ARROW",
+        "score": 121905637
+    }, {
+        "char": "😆",
+        "id": "1F606",
+        "name": "SMILING FACE WITH OPEN MOUTH AND TIGHTLY-CLOSED EYES",
+        "score": 115055069
+    }, {
+        "char": "😡",
+        "id": "1F621",
+        "name": "POUTING FACE",
+        "score": 114510621
+    }, {
+        "char": "💪",
+        "id": "1F4AA",
+        "name": "FLEXED BICEPS",
+        "score": 112225736
+    }, {
+        "char": "😀",
+        "id": "1F600",
+        "name": "GRINNING FACE",
+        "score": 109418928
+    }, {
+        "char": "💁",
+        "id": "1F481",
+        "name": "INFORMATION DESK PERSON",
+        "score": 105482980
+    }, {
+        "char": "😈",
+        "id": "1F608",
+        "name": "SMILING FACE WITH HORNS",
+        "score": 105034887
+    }, {
+        "char": "🙊",
+        "id": "1F64A",
+        "name": "SPEAK-NO-EVIL MONKEY",
+        "score": 103190550
+    }, {
+        "char": "🎉",
+        "id": "1F389",
+        "name": "PARTY POPPER",
+        "score": 102278086
+    }, {
+        "char": "😃",
+        "id": "1F603",
+        "name": "SMILING FACE WITH OPEN MOUTH",
+        "score": 100657761
+    }, {
+        "char": "😫",
+        "id": "1F62B",
+        "name": "TIRED FACE",
+        "score": 98732129
+    }, {
+        "char": "😤",
+        "id": "1F624",
+        "name": "FACE WITH LOOK OF TRIUMPH",
+        "score": 95941155
+    }, {
+        "char": "✋",
+        "id": "270B",
+        "name": "RAISED HAND",
+        "score": 94258013
+    }, {
+        "char": "😝",
+        "id": "1F61D",
+        "name": "FACE WITH STUCK-OUT TONGUE AND TIGHTLY-CLOSED EYES",
+        "score": 91632234
+    }, {
+        "char": "💓",
+        "id": "1F493",
+        "name": "BEATING HEART",
+        "score": 91061984
+    }, {
+        "char": "😣",
+        "id": "1F623",
+        "name": "PERSEVERING FACE",
+        "score": 83597641
+    }, {
+        "char": "👈",
+        "id": "1F448",
+        "name": "WHITE LEFT POINTING BACKHAND INDEX",
+        "score": 82538506
+    }, {
+        "char": "👊",
+        "id": "1F44A",
+        "name": "FISTED HAND SIGN",
+        "score": 82327526
+    }, {
+        "char": "😬",
+        "id": "1F62C",
+        "name": "GRIMACING FACE",
+        "score": 81708630
+    }, {
+        "char": "😓",
+        "id": "1F613",
+        "name": "FACE WITH COLD SWEAT",
+        "score": 80399637
+    }, {
+        "char": "😇",
+        "id": "1F607",
+        "name": "SMILING FACE WITH HALO",
+        "score": 80203665
+    }, {
+        "char": "😻",
+        "id": "1F63B",
+        "name": "SMILING CAT FACE WITH HEART-SHAPED EYES",
+        "score": 77857127
+    }, {
+        "char": "😥",
+        "id": "1F625",
+        "name": "DISAPPOINTED BUT RELIEVED FACE",
+        "score": 74471606
+    }, {
+        "char": "👇",
+        "id": "1F447",
+        "name": "WHITE DOWN POINTING BACKHAND INDEX",
+        "score": 72308630
+    }, {
+        "char": "👑",
+        "id": "1F451",
+        "name": "CROWN",
+        "score": 72206369
+    }, {
+        "char": "😛",
+        "id": "1F61B",
+        "name": "FACE WITH STUCK-OUT TONGUE",
+        "score": 68453095
+    }, {
+        "char": "😚",
+        "id": "1F61A",
+        "name": "KISSING FACE WITH CLOSED EYES",
+        "score": 65822296
+    }, {
+        "char": "😷",
+        "id": "1F637",
+        "name": "FACE WITH MEDICAL MASK",
+        "score": 64820801
+    }, {
+        "char": "👋",
+        "id": "1F44B",
+        "name": "WAVING HAND SIGN",
+        "score": 64751885
+    }, {
+        "char": "😠",
+        "id": "1F620",
+        "name": "ANGRY FACE",
+        "score": 54785996
+    }, {
+        "char": "😶",
+        "id": "1F636",
+        "name": "FACE WITHOUT MOUTH",
+        "score": 54703999
+    }, {
+        "char": "😖",
+        "id": "1F616",
+        "name": "CONFOUNDED FACE",
+        "score": 54288712
+    }, {
+        "char": "🙋",
+        "id": "1F64B",
+        "name": "HAPPY PERSON RAISING ONE HAND",
+        "score": 45589108
+    }, {
+        "char": "👎",
+        "id": "1F44E",
+        "name": "THUMBS DOWN SIGN",
+        "score": 42861755
+    }, {
+        "char": "😰",
+        "id": "1F630",
+        "name": "FACE WITH OPEN MOUTH AND COLD SWEAT",
+        "score": 40106537
+    }, {
+        "char": "💩",
+        "id": "1F4A9",
+        "name": "PILE OF POO",
+        "score": 40104533
+    }, {
+        "char": "😹",
+        "id": "1F639",
+        "name": "CAT FACE WITH TEARS OF JOY",
+        "score": 39834603
+    }, {
+        "char": "🌞",
+        "id": "1F31E",
+        "name": "SUN WITH FACE",
+        "score": 38463598
+    }, {
+        "char": "😟",
+        "id": "1F61F",
+        "name": "WORRIED FACE",
+        "score": 31140150
+    }, {
+        "char": "🙆",
+        "id": "1F646",
+        "name": "FACE WITH OK GESTURE",
+        "score": 30966626
+    }, {
+        "char": "💤",
+        "id": "1F4A4",
+        "name": "SLEEPING SYMBOL",
+        "score": 30940606
+    }, {
+        "char": "🙅",
+        "id": "1F645",
+        "name": "FACE WITH NO GOOD GESTURE",
+        "score": 30439005
+    }, {
+        "char": "😨",
+        "id": "1F628",
+        "name": "FEARFUL FACE",
+        "score": 29642223
+    }, {
+        "char": "🍕",
+        "id": "1F355",
+        "name": "SLICE OF PIZZA",
+        "score": 28539201
+    }, {
+        "char": "😮",
+        "id": "1F62E",
+        "name": "FACE WITH OPEN MOUTH",
+        "score": 28448624
+    }, {
+        "char": "😙",
+        "id": "1F619",
+        "name": "KISSING FACE WITH SMILING EYES",
+        "score": 28196571
+    }, {
+        "char": "☕️",
+        "id": "2615",
+        "name": "HOT BEVERAGE",
+        "score": 28152106
+    }, {
+        "char": "🎂",
+        "id": "1F382",
+        "name": "BIRTHDAY CAKE",
+        "score": 26033684
+    }, {
+        "char": "💟",
+        "id": "1F49F",
+        "name": "HEART DECORATION",
+        "score": 22577272
+    }, {
+        "char": "🙇",
+        "id": "1F647",
+        "name": "PERSON BOWING DEEPLY",
+        "score": 22502606
+    }, {
+        "char": "😵",
+        "id": "1F635",
+        "name": "DIZZY FACE",
+        "score": 20737045
+    }, {
+        "char": "🌝",
+        "id": "1F31D",
+        "name": "FULL MOON WITH FACE",
+        "score": 18825183
+    }, {
+        "char": "🐱",
+        "id": "1F431",
+        "name": "CAT FACE",
+        "score": 18484887
+    }]
+}
