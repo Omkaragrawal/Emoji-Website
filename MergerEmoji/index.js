@@ -61,10 +61,6 @@ const fs = require('fs');
         }
     }).map(imgUnit => imgUnit.id.toLowerCase())
 
-    // fs.writeFileSync('finalList.json', JSON.stringify({
-    //     list: topList
-    // }));
-
     try {
         for (let i = 0; i < topList.length; i++) {
             const image1 = await Jimp.read(dir1 + topList[i] + '.png');
@@ -102,13 +98,13 @@ const fs = require('fs');
                 direction: true,
                 color: 0xffffff01
             });
-            const finalImg1 = await mergeImg([mergedImg1_0, mergedImg1_1, mergedImg1_0, mergedImg1_1, mergedImg1_0], {
+            const finalImg1 = await mergeImg([mergedImg1_1, mergedImg1_0, mergedImg1_1, mergedImg1_0, mergedImg1_0], {
                 direction: true,
                 color: 0xffffff01
             });
 
-            await finalImg.write(saveDir + topList[i] + '/' + topList[i] + '(final).jpg', _ => console.log("DONE"));
-            await finalImg1.write(saveDir + topList[i] + '/' + topList[i] + '(final-1).jpg', _ => console.log("DONE"));
+            await finalImg.write(saveDir + topList[i] + '/' + topList[i] + '(final).jpg', _ => console.log("DONE" + i + "- 0"));
+            await finalImg1.write(saveDir + topList[i] + '/' + topList[i] + '(final-1).jpg', _ => console.log("DONE" + i + "- 1"));
 
             fs.unlinkSync(saveDir + topList[i] + '/' + topList[i] + '(google).jpg');
             fs.unlinkSync(saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg');
