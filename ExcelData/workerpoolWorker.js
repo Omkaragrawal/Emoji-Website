@@ -37,6 +37,32 @@ console.time(`Time taken by WORKER ${WORKER_COUNT}: `);
     });
 }
 
+const excelToJson = (FILE_NAME) => {
+    return new Promise(async (resolve, reject) => {
+const readXlsxFile = require('read-excel-file/node');
+    try {
+        readXlsxFile(file, {
+            "URL": {
+                prop: "url",
+                type: "URL"
+            },
+            "title": {
+                prop: 'title',
+                type: String
+            }
+        });
+    } catch (err) {
+        console.log("Error:\n\n\n");
+        console.log(err);
+    }
+        try {
+            
+        } catch (error) {
+            console.log(error);
+        }
+    });
+}
+
 workerpool.worker({
     downloadImg: downloadImg
 });
