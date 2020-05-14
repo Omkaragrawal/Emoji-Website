@@ -8,7 +8,7 @@ const pool = workerpool.pool(__dirname + '/downloadGoogleTelegram-worker.js', {
     minWorkers: "max",
     workerType: "thread"
 });
-const files = ['./appleunicode.xlsx', "./SamsungUnicode.xlsx"];
+const files = ["./ImageNew-Google.xlsx", "./Messengericons1.xlsx"];
 // const files = ["./Messengericons1.xlsx"];
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -50,21 +50,19 @@ const files = ['./appleunicode.xlsx', "./SamsungUnicode.xlsx"];
     completeData.slice(2e3, 2030);
 
     //------------------------------------------GET TO 200 EMOJI LIST--------------------------------------------------
-    // let {
-    //     data
-    // } = await axios.get("http://www.emojitracker.com/api/rankings", {
-    //     responseType: "json"
-    // });
+    let {
+        data
+    } = await axios.get("http://www.emojitracker.com/api/rankings", {
+        responseType: "json"
+    });
 
-    // console.log(data.length);
+    console.log(data.length);
 
-    // data = data.sort((a, b) => {
-    //     a = a.score;
-    //     b = b.score;
-    //     return b - a;
-    // }).slice(0, 200);
-
-    let data = JSON.parse(fs.readFileSync('../ExcelData/topEmojis.json'))["top200"]
+    data = data.sort((a, b) => {
+        a = a.score;
+        b = b.score;
+        return b - a;
+    }).slice(0, 200);
 
     const topEmojiIds = data.map(emojiDeatils => {
         return [emojiDeatils.id.toLowerCase(), emojiDeatils.char];
@@ -74,7 +72,7 @@ const files = ['./appleunicode.xlsx', "./SamsungUnicode.xlsx"];
 
     //-------------------------------------------------Writinng topEmoji.json-------------------------------------------
 
-    // fs.writeFileSync("./../ExcelData/topEmojis.json", JSON.stringify({"top200": data}));
+    fs.writeFileSync("./../ExcelData/topEmojis.json", JSON.stringify({"top200": data}));
 
     //----------------------------------------------------Start Fetching------------------------------------------------
     let allTrue = []
