@@ -66,6 +66,7 @@ const pool = workerpool.pool(__dirname + '/index-worker.js', {
         } else {
             return false;
         }
+<<<<<<< HEAD
     }).map(imgUnit => imgUnit.id.toLowerCase());
 
     try {
@@ -130,6 +131,59 @@ const pool = workerpool.pool(__dirname + '/index-worker.js', {
             console.timeEnd("Total Worker time: ");
 
         })
+=======
+    }).map(imgUnit => imgUnit.id.toLowerCase())
+
+    try {
+        for (let i = 0; i < topList.length; i++) {
+            const image1 = await Jimp.read(dir1 + topList[i] + '.png');
+            const image2 = await Jimp.read(dir2 + topList[i] + '.png');
+
+            await image1.resize(125, 125).background(0xffffffff);
+            await image2.resize(125, 125).background(0xffffffff);
+
+            await image1.writeAsync(saveDir + topList[i] + '/' + topList[i] + '(google).jpg');
+            await image2.writeAsync(saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg');
+
+            const mergedImg1_0 = await mergeImg([
+                saveDir + topList[i] + '/' + topList[i] + '(google).jpg', saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg',
+                saveDir + topList[i] + '/' + topList[i] + '(google).jpg', saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg',
+                saveDir + topList[i] + '/' + topList[i] + '(google).jpg', saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg'
+            ], {
+                offset: 5,
+                direction: false,
+                color: 0xffffff01
+            });
+            const mergedImg1_1 = await mergeImg([
+                saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg', saveDir + topList[i] + '/' + topList[i] + '(google).jpg',
+                saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg', saveDir + topList[i] + '/' + topList[i] + '(google).jpg',
+                saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg', saveDir + topList[i] + '/' + topList[i] + '(google).jpg'
+            ], {
+                offset: 5,
+                direction: false,
+                color: 0xffffff01
+            });
+
+            await mergedImg1_0;
+            await mergedImg1_1;
+
+            const finalImg = await mergeImg([mergedImg1_0, mergedImg1_1, mergedImg1_0, mergedImg1_1, mergedImg1_0], {
+                direction: true,
+                color: 0xffffff01
+            });
+            const finalImg1 = await mergeImg([mergedImg1_1, mergedImg1_0, mergedImg1_1, mergedImg1_0, mergedImg1_0], {
+                direction: true,
+                color: 0xffffff01
+            });
+
+            await finalImg.write(saveDir + topList[i] + '/' + topList[i] + '(final).jpg', _ => console.log("DONE" + i + "- 0"));
+            await finalImg1.write(saveDir + topList[i] + '/' + topList[i] + '(final-1).jpg', _ => console.log("DONE" + i + "- 1"));
+
+            fs.unlinkSync(saveDir + topList[i] + '/' + topList[i] + '(google).jpg');
+            fs.unlinkSync(saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg');
+
+        }
+>>>>>>> 0f8a7535f9560924d27981c020929517b6633a65
     } catch (err) {
         pool.terminate(true);
         console.timeEnd("Total Worker time: ");
