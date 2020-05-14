@@ -1,11 +1,6 @@
 const mergeImg = require('merge-img');
 const Jimp = require("jimp");
 const fs = require('fs');
-const workerpool = require('workerpool');
-const pool = workerpool.pool(__dirname + '/index-worker.js', {
-    minWorkers: "max",
-    workerType: "thread"
-});
 
 // mergeImg(["./1f606.png", "./1f606.png", "./1f606.png", "./1f606.png", "./1f606.png", "./1f606.png"], {
 //     offset: 5,
@@ -58,82 +53,69 @@ const pool = workerpool.pool(__dirname + '/index-worker.js', {
     const dir1 = './topEmojiDataset/ImageNew-Google/'
     const dir2 = './topEmojiDataset/Messengericons1/'
     const saveDir = './topSelected/'
-    console.time("Total Worker time: ");
-
     let topList = JSON.parse(fs.readFileSync('./todownload.json'))["top200"].filter(imgUnit => {
         if (fs.existsSync(dir1 + imgUnit.id.toLowerCase() + ".png") && (fs.existsSync(dir2 + imgUnit.id.toLowerCase() + ".png"))) {
             return true;
         } else {
             return false;
         }
-    }).map(imgUnit => imgUnit.id.toLowerCase());
+    }).map(imgUnit => imgUnit.id.toLowerCase())
+
+    // fs.writeFileSync('finalList.json', JSON.stringify({
+    //     list: topList
+    // }));
 
     try {
-        // for (let i = 0; i < topList.length; i++) {
-        //     const image1 = await Jimp.read(dir1 + topList[i] + '.png');
-        //     const image2 = await Jimp.read(dir2 + topList[i] + '.png');
+        for (let i = 0; i < topList.length; i++) {
+            const image1 = await Jimp.read(dir1 + topList[i] + '.png');
+            const image2 = await Jimp.read(dir2 + topList[i] + '.png');
 
-        //     await image1.resize(125, 125).background(0xffffffff);
-        //     await image2.resize(125, 125).background(0xffffffff);
+            await image1.resize(125, 125).background(0xffffffff);
+            await image2.resize(125, 125).background(0xffffffff);
 
-        //     await image1.writeAsync(saveDir + topList[i] + '/' + topList[i] + '(google).jpg');
-        //     await image2.writeAsync(saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg');
+            await image1.writeAsync(saveDir + topList[i] + '/' + topList[i] + '(google).jpg');
+            await image2.writeAsync(saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg');
 
-        //     const mergedImg1_0 = await mergeImg([
-        //         saveDir + topList[i] + '/' + topList[i] + '(google).jpg', saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg',
-        //         saveDir + topList[i] + '/' + topList[i] + '(google).jpg', saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg',
-        //         saveDir + topList[i] + '/' + topList[i] + '(google).jpg', saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg'
-        //     ], {
-        //         offset: 5,
-        //         direction: false,
-        //         color: 0xffffff01
-        //     });
-        //     const mergedImg1_1 = await mergeImg([
-        //         saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg', saveDir + topList[i] + '/' + topList[i] + '(google).jpg',
-        //         saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg', saveDir + topList[i] + '/' + topList[i] + '(google).jpg',
-        //         saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg', saveDir + topList[i] + '/' + topList[i] + '(google).jpg'
-        //     ], {
-        //         offset: 5,
-        //         direction: false,
-        //         color: 0xffffff01
-        //     });
+            const mergedImg1_0 = await mergeImg([
+                saveDir + topList[i] + '/' + topList[i] + '(google).jpg', saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg',
+                saveDir + topList[i] + '/' + topList[i] + '(google).jpg', saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg',
+                saveDir + topList[i] + '/' + topList[i] + '(google).jpg', saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg'
+            ], {
+                offset: 5,
+                direction: false,
+                color: 0xffffff01
+            });
+            const mergedImg1_1 = await mergeImg([
+                saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg', saveDir + topList[i] + '/' + topList[i] + '(google).jpg',
+                saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg', saveDir + topList[i] + '/' + topList[i] + '(google).jpg',
+                saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg', saveDir + topList[i] + '/' + topList[i] + '(google).jpg'
+            ], {
+                offset: 5,
+                direction: false,
+                color: 0xffffff01
+            });
 
-        //     await mergedImg1_0;
-        //     await mergedImg1_1;
+            await mergedImg1_0;
+            await mergedImg1_1;
 
-        //     const finalImg = await mergeImg([mergedImg1_0, mergedImg1_1, mergedImg1_0, mergedImg1_1, mergedImg1_0], {
-        //         direction: true,
-        //         color: 0xffffff01
-        //     });
-        //     const finalImg1 = await mergeImg([mergedImg1_1, mergedImg1_0, mergedImg1_1, mergedImg1_0, mergedImg1_0], {
-        //         direction: true,
-        //         color: 0xffffff01
-        //     });
+            const finalImg = await mergeImg([mergedImg1_0, mergedImg1_1, mergedImg1_0, mergedImg1_1, mergedImg1_0], {
+                direction: true,
+                color: 0xffffff01
+            });
+            const finalImg1 = await mergeImg([mergedImg1_0, mergedImg1_1, mergedImg1_0, mergedImg1_1, mergedImg1_0], {
+                direction: true,
+                color: 0xffffff01
+            });
 
-        //     await finalImg.write(saveDir + topList[i] + '/' + topList[i] + '(final).jpg', _ => console.log("DONE" + i + "- 1"));
-        //     await finalImg1.write(saveDir + topList[i] + '/' + topList[i] + '(final-1).jpg', _ => console.log("DONE" + i + "- 2"));
-        //     await finalImg.write(saveDir + topList[i] + '/' + topList[i] + '(final-2).jpg', _ => console.log("DONE" + i + "- 3"));
-        //     await finalImg1.write(saveDir + topList[i] + '/' + topList[i] + '(final-3).jpg', _ => console.log("DONE" + i + "- 4"));
+            await finalImg.write(saveDir + topList[i] + '/' + topList[i] + '(final).jpg', _ => console.log("DONE"));
+            await finalImg1.write(saveDir + topList[i] + '/' + topList[i] + '(final-1).jpg', _ => console.log("DONE"));
 
-        //     fs.unlinkSync(saveDir + topList[i] + '/' + topList[i] + '(google).jpg');
-        //     fs.unlinkSync(saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg');
+            fs.unlinkSync(saveDir + topList[i] + '/' + topList[i] + '(google).jpg');
+            fs.unlinkSync(saveDir + topList[i] + '/' + topList[i] + '(Messenger).jpg');
 
-        // }
-
-        Promise.all(topList.map((UNICODE, COUNT) => {
-            console.log("Returning pool.exec for count: " + COUNT);
-            return pool.exec("downloadImg", [UNICODE, COUNT]);
-        }))
-        .then(SUCCESS => {
-            pool.terminate(true);
-            console.log("Download Complete");
-            console.timeEnd("Total Worker time: ");
-
-        })
+        }
     } catch (err) {
-        pool.terminate(true);
-        console.timeEnd("Total Worker time: ");
-        console.log(err);
+        console.log(err)
     };
 
     console.log(topList.length);
