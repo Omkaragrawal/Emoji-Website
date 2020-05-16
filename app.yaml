@@ -1,2 +1,2 @@
 # [Start app_yaml]
-runtime: nodejs13
+runtime: nodejs12
