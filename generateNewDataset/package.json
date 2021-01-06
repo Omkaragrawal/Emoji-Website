@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "convert-excel-to-json": "^1.6.1",
     "jimp": "^0.10.2",
     "workerpool": "^5.0.4"
