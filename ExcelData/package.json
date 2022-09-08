@@ -12,7 +12,7 @@
     "axios": "^0.19.2",
     "convert-excel-to-json": "^1.6.1",
     "jimp": "^0.10.1",
-    "read-excel-file": "^4.0.6",
+    "read-excel-file": "^4.1.0",
     "workerpool": "^5.0.4"
   }
 }
